@@ -1,0 +1,70 @@
+.toDoAppContainer {
+  background-color: var(--color-1);
+  color: var(--color-2);
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+  position: relative;
+}
+
+.toDoAppContainer.dark {
+  background-color: var(--darkColor-1);
+  color: var(--darkColor-2);
+}
+
+.toDoAppContainer button {
+  background-color: var(--color-4);
+  color: #ffffff;
+}
+
+.toDoAppContainer.dark button {
+  background-color: var(--darkColor-4);
+  color: var(--darkColor-2);
+}
+
+.toDoAppContainer input {
+  color: var(--color-2);
+}
+
+.toDoAppContainer.dark input {
+  color: var(--darkColor-2);
+}
+
+/* Background */
+
+.background {
+  width: 430px;
+  height: 520px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+
+.background .shape {
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.shape:first-child {
+  background: linear-gradient(var(--color-3), var(--color-4));
+  left: -80px;
+  top: 30px;
+}
+
+.shape.dark:first-child {
+  background: linear-gradient(to right, var(--darkColor-3), var(--darkColor-4));
+}
+
+.shape:last-child {
+  background: linear-gradient(var(--color-5), var(--color-6));
+  right: -30px;
+  bottom: 20px;
+}
+
+.shape.dark:last-child {
+  background: linear-gradient(to right, var(--darkColor-4), var(--darkColor-1));
+  right: -30px;
+  bottom: 20px;
+}
