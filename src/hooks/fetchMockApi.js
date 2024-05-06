@@ -18,6 +18,7 @@ const useFetch = (url) => {
     fetchData();
   }, [url]);
 
+  // Post data
   const postData = async (newData) => {
     await fetch(url, {
       method: "POST",
@@ -31,7 +32,52 @@ const useFetch = (url) => {
       .catch((error) => console.log(error));
   };
 
-  return { data, loading, postData };
+  // Change data
+
+  const updateData = async (id, updatedData) => {
+    // Fetch the existing data
+    const existingData = await fetch(`${url}/${id}`).then((res) => res.json());
+    console.log(existingData);
+    console.log(updatedData);
+    // Update the todos array in the existing data
+    const updatedObject = {
+      ...existingData,
+      todos: [...existingData.todos, updatedData],
+    };
+    // console.log(updatedObject);
+    try {
+      const response = await fetch(`${url}/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedObject),
+      });
+      if (!response.ok) {
+        throw new Error("Failed to update data");
+      }
+      const jsonData = await response.json();
+      setData((prevData) =>
+        prevData.map((item) => (item.id === id ? jsonData : item))
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // Delete Data
+  const deleteData = async (id) => {
+    const response = await fetch(`${url}/${id}`, {
+      method: "DELETE",
+    });
+    if (response.ok) {
+      setData(data.filter((item) => item.id !== id));
+    } else {
+      throw new Error("Failed to delete item");
+    }
+  };
+
+  return { data, loading, postData, deleteData, updateData };
 };
 
 export default useFetch;

@@ -7,6 +7,7 @@ import useFetch from "../../hooks/fetchMockApi";
 const userInitialValue = {
   username: "",
   password: "",
+  todos: [],
 };
 
 const Login = () => {

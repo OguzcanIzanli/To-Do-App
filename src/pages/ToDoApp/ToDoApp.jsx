@@ -1,7 +1,8 @@
 import "./ToDoApp.style.css";
-import { useTheme } from "../../context/ThemeContext";
 import Navbar from "../../components/Navbar";
 import Login from "../../components/Login";
+import List from "../../components/List";
+import { useTheme } from "../../context/ThemeContext";
 import { useUsername } from "../../context/UserContext";
 
 const ToDoApp = () => {
@@ -16,7 +17,7 @@ const ToDoApp = () => {
       </div>
 
       <Navbar />
-      {username == "" ? <Login /> : "user var"}
+      {username == "" ? <Login /> : <List />}
     </div>
   );
 };

@@ -1,3 +1,4 @@
+import "./Navbar.style.css";
 import { useTheme } from "../../context/ThemeContext";
 import { useUsername } from "../../context/UserContext";
 
@@ -11,11 +12,22 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <button onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
-        Change Theme
-      </button>
-      {username && <button onClick={Logout}>Logout</button>}
+    <div className="navbar">
+      {username && (
+        <button className="logoutBtn" onClick={Logout}>
+          Logout
+        </button>
+      )}
+      <div
+        className="themeChangeBtn"
+        onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+      >
+        {theme === "light" ? (
+          <i className="fa-regular fa-sun"></i>
+        ) : (
+          <i className="fa-regular fa-moon"></i>
+        )}
+      </div>
     </div>
   );
 };

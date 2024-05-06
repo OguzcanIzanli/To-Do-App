@@ -1,0 +1,24 @@
+.navbar {
+  height: 50px;
+  display: flex;
+  justify-content: right;
+  padding: 10px 20px;
+  align-items: center;
+  gap: 15px;
+}
+
+.themeChangeBtn {
+  font-size: 1.5rem;
+  font-weight: 300;
+  cursor: pointer;
+  width: 24px;
+}
+
+.logoutBtn {
+  border: none;
+  padding: 4px 8px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}

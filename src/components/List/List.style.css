@@ -1,0 +1,184 @@
+.toDoList {
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-shadow: 0 0 4px rgba(8, 7, 16, 0.6);
+  padding: 20px 50px;
+  width: 580px;
+  margin: 20px auto;
+}
+
+.toDoList h1 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 40px;
+}
+
+.toDoInput {
+  width: 100%;
+  padding: 4px 10px;
+  margin: 20px 0;
+  background-color: transparent;
+  font-size: 1.1rem;
+  outline: none;
+  border-radius: 5px;
+}
+
+.toDoInput::placeholder {
+  color: var(--darkColor-5);
+}
+
+.toDoInput:hover {
+  box-shadow: 0 0 4px rgba(8, 7, 16, 0.6);
+}
+
+/* 
+.todo-list {
+  height: 40px;
+  display: flex;
+  width: 540px;
+  justify-content: space-between;
+  margin: auto;
+  align-items: center;
+}
+
+.todo {
+  overflow: hidden;
+  width: 90%;
+  margin: 9px;
+  border-radius: 15px;
+  padding: 4px;
+}
+
+.todo:hover {
+  background-color: #ee6983;
+  opacity: 0.7;
+  box-shadow: 0 0 4px rgba(8, 7, 16, 0.6);
+}
+
+.todo.dark:hover {
+  background-color: #816797;
+}
+
+.todo.true {
+  opacity: 0.7;
+  background-color: #ee6983;
+  vertical-align: middle;
+  text-decoration: line-through;
+  box-shadow: 0 0 4px rgba(8, 7, 16, 0.6);
+}
+
+.todo.true:hover {
+  opacity: 0.5;
+}
+
+.todo.true.dark {
+  background-color: #816797;
+}
+
+/* Edit Form Input */
+
+/* .edit-input {
+  padding: 5px;
+  margin-left: 6px;
+  margin-right: 6px;
+  width: 462.6px;
+  background-color: rgba(255, 255, 255, 0.07);
+  border-radius: 6px;
+  font-weight: 500;
+  color: #850e35;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+.edit-input.dark {
+  color: #d6d5a8;
+}
+
+/* Buttons */
+/*
+button {
+  color: #080710;
+  background-color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+}
+
+button.dark {
+  background-color: #08071086;
+  color: lightgray;
+  border-color: lightgray;
+}
+
+button:hover {
+  opacity: 0.8;
+  box-shadow: 0 0 4px rgba(8, 7, 16, 0.6);
+}
+
+/* To Do Add Button */
+/*
+.todo-button {
+  width: 10%;
+  height: 26px;
+  margin-top: 15px;
+  margin-right: 50px;
+}
+
+/* ESD Buttons */
+/*
+.ESDbuttons {
+  display: flex;
+  width: 10%;
+  cursor: pointer;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ESDbutton {
+  color: #08071086;
+  font-size: 23px;
+}
+
+.ESDbutton.dark {
+  color: lightgrey;
+}
+
+.ESDbutton:hover {
+  background-color: lightgrey;
+  border-radius: 6px;
+  box-shadow: 0 0 4px rgba(8, 7, 16, 0.6);
+}
+
+.ESDbutton.dark:hover {
+  background-color: darkslategrey;
+}
+
+/* Filter Select */
+/*
+select {
+  background-color: transparent;
+  font-size: 14px;
+  cursor: pointer;
+  height: 25px;
+  width: 20%;
+  margin-top: 15px;
+  font-weight: 600;
+  border-radius: 6px;
+}
+
+select.dark {
+  color: #d6d5a8;
+}
+
+select:hover {
+  box-shadow: 0 0 4px rgba(8, 7, 16, 0.6);
+}
+
+select option {
+  background: #fff5e4;
+}
+
+select option.dark {
+  background: #1b2430;
+} */
