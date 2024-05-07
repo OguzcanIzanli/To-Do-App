@@ -13,7 +13,7 @@ This project is a simple to-do list application built using React. It allows use
 
 ## Live Site
 
-You can access the live website [Here](https://logintodoapp.netlify.app/)
+You can access the live website [here](https://logintodoapp.netlify.app/)
 
 ## How To Use
 
