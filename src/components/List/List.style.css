@@ -117,6 +117,25 @@
   gap: 5px;
 }
 
+.toastBox {
+  position: absolute;
+  top: 60px;
+  right: 30px;
+  border-radius: 6px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px 15px;
+  color: #ffffff;
+  background-color: var(--color-5);
+  transform: translateX(calc(100% + 360px));
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.25, 1.35);
+  font-size: 1.5rem;
+  z-index: 1;
+}
+
+.active {
+  transform: translateX(0);
+}
+
 @media (max-width: 576px) {
   .toDoList {
     width: 80%;
