@@ -120,6 +120,7 @@
 @media (max-width: 576px) {
   .toDoList {
     width: 80%;
+    padding: 10px 50px 0 50px;
   }
 
   .listFooter {
@@ -128,6 +129,6 @@
 
   .filterBtns {
     justify-content: space-between;
-    margin-bottom: 5px;
+    margin: 5px 0;
   }
 }
