@@ -21,10 +21,10 @@ To clone and run this application, you'll need [Git](https://git-scm.com/) and [
 
 ```
 # Clone this repository
-$ git clone https://github.com/OguzcanIzanli/To-Do-List.git
+$ git clone https://github.com/OguzcanIzanli/To-Do-App.git
 
 # Go into the repository
-$ cd To-Do-List
+$ cd To-Do-App
 
 # Install dependencies
 $ npm install
