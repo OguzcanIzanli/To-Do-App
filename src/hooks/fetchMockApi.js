@@ -45,7 +45,9 @@ const useFetch = (url) => {
       method: "PUT",
       body: JSON.stringify({ isCompleted: !clickedItem.isCompleted }),
       headers: { "Content-type": "application/json; charset=UTF-8" },
-    }).then((res) => res.json());
+    })
+      .then((res) => res.json())
+      .catch((error) => console.log(error));
   };
 
   // Change Data
@@ -70,7 +72,9 @@ const useFetch = (url) => {
         isCompleted: false,
       }),
       headers: { "Content-type": "application/json; charset=UTF-8" },
-    }).then((res) => res.json());
+    })
+      .then((res) => res.json())
+      .catch((error) => console.log(error));
   };
 
   // Delete Data
@@ -79,7 +83,9 @@ const useFetch = (url) => {
 
     await fetch(`${url}/${id}`, {
       method: "DELETE",
-    }).then((res) => res.json());
+    })
+      .then((res) => res.json())
+      .catch((error) => console.log(error));
   };
 
   return {

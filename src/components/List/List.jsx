@@ -1,6 +1,7 @@
 import "./List.style.css";
 import { useState } from "react";
 import useFetch from "../../hooks/fetchMockApi";
+import Loading from "../Loading";
 
 const todoInitialValue = {
   content: "",
@@ -14,8 +15,15 @@ const List = () => {
   const [selectedFilter, setSelectedFilter] = useState("All");
 
   const url = `https://6319c72e6b4c78d91b4337fb.mockapi.io/todos`;
-  const { data, setData, postData, completeData, changeData, deleteData } =
-    useFetch(url);
+  const {
+    data,
+    setData,
+    postData,
+    completeData,
+    changeData,
+    deleteData,
+    loading,
+  } = useFetch(url);
 
   // Post Todo
   const addToDo = (e) => {
@@ -58,7 +66,7 @@ const List = () => {
   };
 
   // Clear Completed
-
+  console.log(loading);
   const clearCompleted = () => {
     data.map((item) => {
       if (item.isCompleted === true) {
@@ -66,6 +74,13 @@ const List = () => {
       }
     });
   };
+
+  let visible = "hidden";
+  data.forEach((item) => {
+    if (item.isCompleted === true) {
+      visible = "visible";
+    }
+  });
 
   return (
     <div className="toDoList">
@@ -78,54 +93,58 @@ const List = () => {
           placeholder="A New To Do"
         />
       </form>
-      {data
-        .filter(
-          (item) =>
-            item.isCompleted.toString() === selectedFilter ||
-            "All" === selectedFilter
-        )
-        .map((item) => (
-          <div key={item.id} className="toDoContainer">
-            <div className="toDoItem">
-              {!item.isEditible ? (
-                <div
-                  className={`content ${
-                    item.isCompleted == true ? "completed" : ""
-                  }`}
-                  onClick={() => completeToDo(item)}
-                >
-                  {item.content}
-                </div>
-              ) : (
-                <form>
-                  <input
-                    className={`edit-input ${item.isCompleted} `}
-                    onChange={(e) => setChangeTodo(e.target.value)}
-                    value={changeTodo}
-                  />
-                </form>
-              )}
-            </div>
+      {loading ? (
+        <Loading />
+      ) : (
+        data
+          .filter(
+            (item) =>
+              item.isCompleted.toString() === selectedFilter ||
+              "All" === selectedFilter
+          )
+          .map((item) => (
+            <div key={item.id} className="toDoContainer">
+              <div className="toDoItem">
+                {!item.isEditible ? (
+                  <div
+                    className={`content ${
+                      item.isCompleted == true ? "completed" : ""
+                    }`}
+                    onClick={() => completeToDo(item)}
+                  >
+                    {item.content}
+                  </div>
+                ) : (
+                  <form>
+                    <input
+                      className={`editInput ${item.isCompleted} `}
+                      onChange={(e) => setChangeTodo(e.target.value)}
+                      value={changeTodo}
+                    />
+                  </form>
+                )}
+              </div>
 
-            <div className="toDoBtns">
-              {!item.isEditible ? (
+              <div className="toDoBtns">
+                {!item.isEditible ? (
+                  <i
+                    className="fa-regular fa-pen-to-square"
+                    onClick={() => editToDo(item.id, item.content)}
+                  ></i>
+                ) : (
+                  <i
+                    className="fa-regular fa-floppy-disk"
+                    onClick={() => saveToDo(item)}
+                  ></i>
+                )}
                 <i
-                  className="fa-regular fa-pen-to-square"
-                  onClick={() => editToDo(item.id, item.content)}
+                  className="ESDbutton fa-regular fa-trash-can"
+                  onClick={() => deleteToDo(item.id)}
                 ></i>
-              ) : (
-                <i
-                  className="fa-regular fa-floppy-disk"
-                  onClick={() => saveToDo(item)}
-                ></i>
-              )}
-              <i
-                className="ESDbutton fa-regular fa-trash-can"
-                onClick={() => deleteToDo(item.id)}
-              ></i>
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+      )}
       <div className="listFooter">
         <div className="numberOfItems">
           {data.filter((item) => item.isCompleted == false).length} Items Left
@@ -141,9 +160,10 @@ const List = () => {
             Completed
           </button>
         </div>
-        {data.find((item) => item.isCompleted === true) && (
-          <button onClick={clearCompleted}>Clear Completed</button>
-        )}
+
+        <button className={visible} onClick={clearCompleted}>
+          Clear Completed
+        </button>
       </div>
     </div>
   );

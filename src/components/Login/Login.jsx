@@ -1,10 +1,8 @@
 import "./Login.style.css";
-import { useTheme } from "../../context/ThemeContext";
 import { useUsername } from "../../context/UserContext";
 import { useState } from "react";
 
 const Login = () => {
-  const { theme } = useTheme();
   const { setUsername } = useUsername();
   const [error, setError] = useState("");
   const [name, setName] = useState("");
@@ -29,18 +27,14 @@ const Login = () => {
       <label htmlFor="username">Username</label>
       <input
         id="username"
-        className={`loginInput ${theme === "light" ? "" : "dark"}`}
+        className="loginInput"
         type="text"
         value={name}
         onChange={(e) => setName(e.target.value)}
         placeholder="Enter your username"
       />
 
-      <button
-        id="signup"
-        type="submit"
-        className={`loginBtn ${theme === "light" ? "" : "dark"}`}
-      >
+      <button id="signup" type="submit" className="loginBtn">
         Log In
       </button>
     </form>

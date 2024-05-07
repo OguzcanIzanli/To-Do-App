@@ -11,7 +11,23 @@
   font-size: 1.5rem;
   font-weight: 300;
   cursor: pointer;
-  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.themeChangeBtn i {
+  transition: all 0.2s;
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+  text-align: center;
+  align-content: center;
+}
+
+.themeChangeBtn i:hover {
+  scale: 1.1;
+  background-color: rgba(122, 122, 122, 0.2);
 }
 
 .welcome {

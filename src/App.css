@@ -12,3 +12,26 @@
   --color-5: #af0171;
   --color-6: #790252;
 }
+
+button {
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+button:hover {
+  scale: 0.95;
+  opacity: 0.8;
+}
+
+input {
+  transition: all 0.2s;
+  outline: none;
+  background-color: transparent;
+  border-radius: 6px;
+}
+
+input:hover {
+  box-shadow: 0 0 4px rgba(8, 7, 16, 0.6);
+}

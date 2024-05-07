@@ -68,3 +68,9 @@
   right: -30px;
   bottom: 20px;
 }
+
+@media (max-width: 576px) {
+  .background {
+    width: 40%;
+  }
+}
