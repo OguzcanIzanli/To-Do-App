@@ -14,9 +14,12 @@ const Login = () => {
   return (
     <div className="navbar">
       {username && (
-        <button className="logoutBtn" onClick={Logout}>
-          Logout
-        </button>
+        <div className="welcome">
+          <h3>Welcome {username}!</h3>
+          <button className="logoutBtn" onClick={Logout}>
+            Logout
+          </button>
+        </div>
       )}
       <div
         className="themeChangeBtn"

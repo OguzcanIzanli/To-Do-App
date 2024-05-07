@@ -4,7 +4,7 @@
   box-shadow: 0 0 4px rgba(8, 7, 16, 0.6);
   padding: 20px 50px;
   width: 580px;
-  margin: 20px auto;
+  margin: 20px auto 0 auto;
 }
 
 .toDoList h1 {
@@ -31,16 +31,53 @@
   box-shadow: 0 0 4px rgba(8, 7, 16, 0.6);
 }
 
-/* 
-.todo-list {
-  height: 40px;
+.toDoContainer {
   display: flex;
-  width: 540px;
   justify-content: space-between;
-  margin: auto;
+  font-size: 1.3rem;
   align-items: center;
+  width: 100%;
 }
 
+.toDoItem {
+  padding: 8px 0;
+  width: 87%;
+}
+
+.content {
+  overflow-wrap: break-word;
+  cursor: pointer;
+}
+
+.toDoItem .completed {
+  color: #ffffff;
+}
+
+.toDoBtns {
+  display: flex;
+
+  width: 13%;
+  padding-left: 15px;
+  justify-content: space-between;
+}
+
+.toDoBtns i {
+  width: 20px;
+  display: flex;
+  justify-content: left;
+  cursor: pointer;
+}
+
+.edit-input {
+  width: 100%;
+  outline: none;
+  background-color: transparent;
+  font-size: 1.3rem;
+  border-radius: 5px;
+  border: none;
+}
+
+/* 
 .todo {
   overflow: hidden;
   width: 90%;
@@ -77,18 +114,7 @@
 
 /* Edit Form Input */
 
-/* .edit-input {
-  padding: 5px;
-  margin-left: 6px;
-  margin-right: 6px;
-  width: 462.6px;
-  background-color: rgba(255, 255, 255, 0.07);
-  border-radius: 6px;
-  font-weight: 500;
-  color: #850e35;
-  font-size: 16px;
-  letter-spacing: 0.5px;
-}
+/* 
 
 .edit-input.dark {
   color: #d6d5a8;
@@ -127,13 +153,7 @@ button:hover {
 
 /* ESD Buttons */
 /*
-.ESDbuttons {
-  display: flex;
-  width: 10%;
-  cursor: pointer;
-  justify-content: space-between;
-  align-items: center;
-}
+
 
 .ESDbutton {
   color: #08071086;

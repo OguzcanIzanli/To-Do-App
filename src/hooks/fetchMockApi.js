@@ -18,7 +18,7 @@ const useFetch = (url) => {
     fetchData();
   }, [url]);
 
-  // Post data
+  // Post Data
   const postData = async (newData) => {
     await fetch(url, {
       method: "POST",
@@ -32,52 +32,65 @@ const useFetch = (url) => {
       .catch((error) => console.log(error));
   };
 
-  // Change data
+  // Complete Data
+  const completeData = async (clickedItem) => {
+    setData((prev) =>
+      prev.map((item) =>
+        item.id === clickedItem.id
+          ? { ...item, isCompleted: !item.isCompleted }
+          : item
+      )
+    );
+    await fetch(`${url}/${clickedItem.id}`, {
+      method: "PUT",
+      body: JSON.stringify({ isCompleted: !clickedItem.isCompleted }),
+      headers: { "Content-type": "application/json; charset=UTF-8" },
+    }).then((res) => res.json());
+  };
 
-  const updateData = async (id, updatedData) => {
-    // Fetch the existing data
-    const existingData = await fetch(`${url}/${id}`).then((res) => res.json());
-    console.log(existingData);
-    console.log(updatedData);
-    // Update the todos array in the existing data
-    const updatedObject = {
-      ...existingData,
-      todos: [...existingData.todos, updatedData],
-    };
-    // console.log(updatedObject);
-    try {
-      const response = await fetch(`${url}/${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(updatedObject),
-      });
-      if (!response.ok) {
-        throw new Error("Failed to update data");
-      }
-      const jsonData = await response.json();
-      setData((prevData) =>
-        prevData.map((item) => (item.id === id ? jsonData : item))
-      );
-    } catch (error) {
-      console.log(error);
-    }
+  // Change Data
+  const changeData = async (changedItem) => {
+    setData((prev) =>
+      prev.map((item) =>
+        item.id === changedItem.id
+          ? {
+              ...item,
+              content: changedItem.content,
+              isEditible: false,
+              isCompleted: false,
+            }
+          : item
+      )
+    );
+    await fetch(`${url}/${changedItem.id}`, {
+      method: "PUT",
+      body: JSON.stringify({
+        content: changedItem.content,
+        isEditible: false,
+        isCompleted: false,
+      }),
+      headers: { "Content-type": "application/json; charset=UTF-8" },
+    }).then((res) => res.json());
   };
 
   // Delete Data
   const deleteData = async (id) => {
-    const response = await fetch(`${url}/${id}`, {
+    setData((prev) => prev.filter((item) => item.id !== id));
+
+    await fetch(`${url}/${id}`, {
       method: "DELETE",
-    });
-    if (response.ok) {
-      setData(data.filter((item) => item.id !== id));
-    } else {
-      throw new Error("Failed to delete item");
-    }
+    }).then((res) => res.json());
   };
 
-  return { data, loading, postData, deleteData, updateData };
+  return {
+    data,
+    setData,
+    loading,
+    postData,
+    completeData,
+    changeData,
+    deleteData,
+  };
 };
 
 export default useFetch;
