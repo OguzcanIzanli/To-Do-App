@@ -17,9 +17,7 @@ This project is a simple to-do list application built using React. It allows use
 
 You can access the live website [here](https://logintodoapp.netlify.app/).
 
-<video width="640" height="360" controls>
-  <source src="./public/To-Do-App-Video.mp4" type="video/mp4">
-</video>
+https://github.com/OguzcanIzanli/To-Do-App/assets/95178772/3a9bff25-6b96-499f-a1cc-5ab4dba8ba52
 
 ## How To Use
 
